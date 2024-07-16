@@ -7,6 +7,7 @@
 #include <string>
 #include <vector>
 #include <map>
+#include <queue>
 #include <QPair>
 #include <QString>
 #include <QDate>
@@ -34,8 +35,7 @@ struct AVLNode {
     AVLNode *right;
     int height;
 
-    AVLNode(Path p) : path(p), left(nullptr), right(nullptr), height(1) {
-    }
+    AVLNode(Path p) : path(p), left(nullptr), right(nullptr), height(1) {}
 };
 
 class AVLTree {
@@ -76,16 +76,19 @@ class PathManager : public QObject {
     AVLTree avlTree;
     LinkedList linkedList;
     map<int, Path> pathMap;
+    map<string, vector<pair<string, int>>> graph;
     int argc;
     char **argv;
 
 public:
     PathManager(int argc, char *argv[]);
     void create(const string &filePath);
-    void displayGraph();
+    void displayGraph(QGraphicsScene *scene);
     void displayAVL();
     void displayList();
     void appendPath(const string &filePath, const string &userID, const string &from, const string &to);
+    void processRequests(const string &requestsFilePath, const string &outputFilePath);
+    int findShortestPath(const string &from, const string &to);
 };
 
 #endif // PATH_MANAGER_H

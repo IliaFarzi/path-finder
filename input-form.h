@@ -1,14 +1,12 @@
 #ifndef INPUT_FORM_H
 #define INPUT_FORM_H
 
-#include <QWidget>
-#include <QVBoxLayout>
-#include <QFormLayout>
+#include <QDialog>
 #include <QLineEdit>
 #include <QPushButton>
 #include "path-manager.h"
 
-class InputForm : public QWidget {
+class InputForm : public QDialog {
     Q_OBJECT
 
 public:

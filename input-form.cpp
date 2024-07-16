@@ -1,6 +1,9 @@
 #include "input-form.h"
+#include <QVBoxLayout>
+#include <QFormLayout>
+#include <QMessageBox>
 
-InputForm::InputForm(PathManager &manager) : pathManager(manager) {
+InputForm::InputForm(PathManager &manager) : QDialog(), pathManager(manager) {
     QVBoxLayout *layout = new QVBoxLayout;
 
     QFormLayout *formLayout = new QFormLayout;
@@ -27,7 +30,9 @@ void InputForm::handleSubmit() {
 
     if (!userID.empty() && !from.empty() && !to.empty()) {
         pathManager.appendPath("data/requastes.txt", userID, from, to);
+        QMessageBox::information(this, "Success", "Path added successfully!");
+        close();
     } else {
-        cerr << "Please fill all the fields.\n";
+        QMessageBox::warning(this, "Input Error", "Please fill all the fields.");
     }
 }

@@ -14,6 +14,7 @@ set(SOURCES
         input-form.cpp
         path-manager.h
         input-form.h
+        main-window.h
 )
 
 add_executable(usc_path_finder ${SOURCES})

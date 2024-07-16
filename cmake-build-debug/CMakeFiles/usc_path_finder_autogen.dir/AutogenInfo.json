@@ -86,6 +86,12 @@
 			null
 		],
 		[
+			"/home/overall/CLionProjects/graphic-paths/main-window.h",
+			"Mu",
+			"EWIEGA46WW/moc_main-window.cpp",
+			null
+		],
+		[
 			"/home/overall/CLionProjects/graphic-paths/path-manager.h",
 			"Mu",
 			"EWIEGA46WW/moc_path-manager.cpp",

@@ -29,6 +29,7 @@
   /usr/include/c++/11/bits/cpp_type_traits.h \
   /usr/include/c++/11/bits/cxxabi_forced.h \
   /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/bits/deque.tcc \
   /usr/include/c++/11/bits/erase_if.h \
   /usr/include/c++/11/bits/exception.h \
   /usr/include/c++/11/bits/exception_defines.h \
@@ -76,6 +77,7 @@
   /usr/include/c++/11/bits/stl_algobase.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/stl_construct.h \
+  /usr/include/c++/11/bits/stl_deque.h \
   /usr/include/c++/11/bits/stl_function.h \
   /usr/include/c++/11/bits/stl_heap.h \
   /usr/include/c++/11/bits/stl_iterator.h \
@@ -86,6 +88,7 @@
   /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/c++/11/bits/stl_numeric.h \
   /usr/include/c++/11/bits/stl_pair.h \
+  /usr/include/c++/11/bits/stl_queue.h \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/stl_relops.h \
   /usr/include/c++/11/bits/stl_tempbuf.h \
@@ -116,6 +119,7 @@
   /usr/include/c++/11/cwctype \
   /usr/include/c++/11/debug/assertions.h \
   /usr/include/c++/11/debug/debug.h \
+  /usr/include/c++/11/deque \
   /usr/include/c++/11/exception \
   /usr/include/c++/11/ext/aligned_buffer.h \
   /usr/include/c++/11/ext/alloc_traits.h \
@@ -145,6 +149,7 @@
   /usr/include/c++/11/pstl/glue_algorithm_defs.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
+  /usr/include/c++/11/queue \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/stdexcept \
   /usr/include/c++/11/stdlib.h \
