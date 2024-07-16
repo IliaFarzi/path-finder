@@ -4,9 +4,23 @@
 #include <string>
 #include <vector>
 #include <map>
-#include <QApplication>
-#include <QVBoxLayout>
-#include <QLabel>
+#include <QPair>
+#include <QString>
+#include <cmath>
+#include <QtWidgets/QApplication>
+#include <cmath>
+#include <map>
+#include <set>
+#include <QtWidgets/QGraphicsView>
+#include <QtWidgets/QGraphicsScene>
+#include <QtWidgets/QGraphicsPathItem>
+#include <QColor>
+#include <QPen>
+#include <cmath>
+#include <map>
+#include <set>
+#include <QPainterPath>
+
 using namespace std;
 
 struct Path {
@@ -35,7 +49,6 @@ public:
     AVLTree() : root(nullptr) {
     }
 
-    // Helper functions for AVL tree
     int height(AVLNode *N) {
         return N ? N->height : 0;
     }
@@ -106,16 +119,16 @@ public:
     }
 };
 
-struct ListNode {
-    Path path;
-    ListNode *next;
-
-    ListNode(Path p) : path(p), next(nullptr) {
-    }
-};
-
 class LinkedList {
 public:
+    struct ListNode {
+        Path path;
+        ListNode *next;
+
+        ListNode(Path p) : path(p), next(nullptr) {
+        }
+    };
+
     ListNode *head;
 
     LinkedList() : head(nullptr) {
@@ -148,57 +161,129 @@ public:
     }
 
     void create(const string &filePath) {
-    ifstream file(filePath);
-    string line;
-    while (getline(file, line)) {
-        stringstream ss(line);
-        Path path;
-        string token;
-        getline(ss, token, ',');
-        path.roadID = stoi(token.substr(token.find(":") + 1));
-        getline(ss, token, ',');
-        path.from = token.substr(token.find(":") + 1);
-        getline(ss, token, ',');
-        path.to = token.substr(token.find(":") + 1);
-        getline(ss, token, ',');
-        path.distance = stod(token.substr(token.find(":") + 1));
-        getline(ss, token, ',');
-        path.traffic = token.substr(token.find(":") + 1);
-        getline(ss, token, ',');
-        path.travelTime = stoi(token.substr(token.find(":") + 1));
+        ifstream file(filePath);
+        string line;
+        while (getline(file, line)) {
+            stringstream ss(line);
+            Path path;
+            string token;
+            getline(ss, token, ',');
+            path.roadID = stoi(token.substr(token.find(":") + 1));
+            getline(ss, token, ',');
+            path.from = token.substr(token.find(":") + 1);
+            getline(ss, token, ',');
+            path.to = token.substr(token.find(":") + 1);
+            getline(ss, token, ',');
+            path.distance = stod(token.substr(token.find(":") + 1));
+            getline(ss, token, ',');
+            path.traffic = token.substr(token.find(":") + 1);
+            getline(ss, token, ',');
+            path.travelTime = stoi(token.substr(token.find(":") + 1));
 
-        avlTree.root = avlTree.insert(avlTree.root, path);
-        linkedList.insert(path);
-        pathMap[path.roadID] = path;
+            avlTree.root = avlTree.insert(avlTree.root, path);
+            linkedList.insert(path);
+            pathMap[path.roadID] = path;
+        }
+        file.close();
     }
-    file.close();
-}
 
-    void display() {
-        // Placeholder for now
+    void displayGraph() {
         QApplication app(argc, argv);
-        QWidget window;
-        QVBoxLayout *layout = new QVBoxLayout();
 
-        vector<Path> paths;
-        avlTree.inorder(avlTree.root, paths);
+        QGraphicsScene scene;
+        QGraphicsView view(&scene);
+        view.setRenderHint(QPainter::Antialiasing);
 
-        for (const auto &path: paths) {
-            QString pathInfo = QString("RoadID: %1, From: %2, To: %3, Distance: %4, Traffic: %5, TravelTime: %6")
-                    .arg(path.roadID)
-                    .arg(QString::fromStdString(path.from))
-                    .arg(QString::fromStdString(path.to))
-                    .arg(path.distance)
-                    .arg(QString::fromStdString(path.traffic))
-                    .arg(path.travelTime);
-            QLabel *label = new QLabel(pathInfo);
-            layout->addWidget(label);
+        const int radius = 80;
+        const int sceneSize = 1000;
+        const double pi = 3.14159265358979323846;
+
+        vector<QColor> colors = {
+            Qt::red, Qt::green, Qt::blue, Qt::cyan, Qt::magenta, Qt::yellow, Qt::darkRed, Qt::darkGreen, Qt::darkBlue
+        };
+
+        map<string, QGraphicsEllipseItem *> nodeMap;
+        vector<QPair<string, QGraphicsEllipseItem *> > nodes;
+        for (const auto &pair: pathMap) {
+            const Path &path = pair.second;
+
+            if (nodeMap.find(path.from) == nodeMap.end()) {
+                QGraphicsEllipseItem *fromNode = scene.addEllipse(0, 0, radius * 1.5, radius, QPen(Qt::black),
+                                                                  QBrush(Qt::white));
+                nodeMap[path.from] = fromNode;
+                nodes.push_back(qMakePair(path.from, fromNode));
+            }
+
+            if (nodeMap.find(path.to) == nodeMap.end()) {
+                QGraphicsEllipseItem *toNode = scene.addEllipse(0, 0, radius * 1.5, radius, QPen(Qt::black),
+                                                                QBrush(Qt::white));
+                nodeMap[path.to] = toNode;
+                nodes.push_back(qMakePair(path.to, toNode));
+            }
         }
 
-        window.setLayout(layout);
-        window.setWindowTitle("Path Information");
-        window.show();
+        int nodeCount = nodes.size();
+        for (int i = 0; i < nodeCount; ++i) {
+            double angle = 2 * pi * i / nodeCount;
+            int x = sceneSize / 2 + (sceneSize / 3) * cos(angle) - (radius * 1.5) / 2;
+            int y = sceneSize / 2 + (sceneSize / 3) * sin(angle) - radius / 2;
+            nodes[i].second->setRect(x, y, radius * 1.5, radius);
 
+            QGraphicsTextItem *label = scene.addText(QString::fromStdString(nodes[i].first), QFont("Arial", 14));
+            label->setDefaultTextColor(Qt::black);
+            label->setPos(x + (radius * 0.4), y + (radius * 0.3));
+        }
+
+        set<pair<int, int> > occupiedPositions;
+        map<string, int> nodeColorIndex;
+        map<pair<string, string>, int> pathCount;
+        int colorIndex = 0;
+
+        for (const auto &pair: pathMap) {
+            const Path &path = pair.second;
+            QGraphicsEllipseItem *fromNode = nodeMap[path.from];
+            QGraphicsEllipseItem *toNode = nodeMap[path.to];
+
+            if (fromNode && toNode) {
+                if (nodeColorIndex.find(path.from) == nodeColorIndex.end()) {
+                    nodeColorIndex[path.from] = colorIndex++;
+                }
+                QPen pen(colors[nodeColorIndex[path.from] % colors.size()], 2);
+                fromNode->setPen(pen);
+                toNode->setPen(pen);
+
+                pathCount[{path.from, path.to}]++;
+
+                QLineF line(fromNode->rect().center(), toNode->rect().center());
+
+                double angle = atan2(line.dy(), line.dx());
+                line.setP1(QPointF(fromNode->rect().center().x() + (radius * 0.75) * cos(angle),
+                                   fromNode->rect().center().y() + (radius * 0.5) * sin(angle)));
+                line.setP2(QPointF(toNode->rect().center().x() - (radius * 0.75) * cos(angle),
+                                   toNode->rect().center().y() - (radius * 0.5) * sin(angle)));
+
+                QGraphicsLineItem *edge = scene.addLine(line, pen);
+
+                QString edgeLabel = QString("%1min/%2km").arg(path.travelTime).arg(path.distance);
+                QGraphicsTextItem *edgeText = scene.addText(edgeLabel, QFont("Arial", 10));
+                edgeText->setDefaultTextColor(colors[nodeColorIndex[path.from] % colors.size()]);
+
+                QPointF labelPos((line.p1().x() + line.p2().x()) / 2, (line.p1().y() + line.p2().y()) / 2);
+                int attempt = 0;
+                while (occupiedPositions.count({
+                           static_cast<int>(labelPos.x()), static_cast<int>(labelPos.y())
+                       }) && attempt < 10) {
+                    labelPos += QPointF(10, 10);
+                    attempt++;
+                }
+                occupiedPositions.insert({static_cast<int>(labelPos.x()), static_cast<int>(labelPos.y())});
+                edgeText->setPos(labelPos);
+            }
+        }
+
+        view.setScene(&scene);
+        view.setFixedSize(sceneSize, sceneSize);
+        view.show();
         app.exec();
     }
 
@@ -227,6 +312,7 @@ int main(int argc, char *argv[]) {
     pm.displayList();
     cout << "\n";
 
-    pm.display();
+
+    pm.displayGraph();
     return 0;
 }

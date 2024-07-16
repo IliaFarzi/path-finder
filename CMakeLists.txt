@@ -10,15 +10,12 @@ add_executable(usc_path_finder main.cpp)
 
 target_link_libraries(usc_path_finder Qt5::Widgets)
 
-# Define the data directory
 set(DATA_DIR "${CMAKE_SOURCE_DIR}/data")
 
-# Add a custom command to copy the data directory to the build directory
 add_custom_command(TARGET usc_path_finder POST_BUILD
         COMMAND ${CMAKE_COMMAND} -E copy_directory
         ${DATA_DIR} $<TARGET_FILE_DIR:usc_path_finder>/data)
 
-# Ensure the data directory is copied when building the target
 add_custom_target(copy_data ALL
         DEPENDS ${DATA_DIR}
         COMMAND ${CMAKE_COMMAND} -E copy_directory

@@ -13,3 +13,4 @@ RoadID:12,From:Vanak,To:Tehranpars,Distance:10.0,Traffic:Heavy,TravelTime:45
 RoadID:13,From:Azadi,To:Vanak,Distance:7.5,Traffic:Moderate,TravelTime:20
 RoadID:14,From:Vanak,To:Mirdamad,Distance:3.7,Traffic:Light,TravelTime:10
 RoadID:15,From:Mirdamad,To:Niavaran,Distance:6.5,Traffic:Moderate,TravelTime:18
+RoadID:16,From:Elahiyeh,To:Niavaran,Distance:4.5,Traffic:Light,TravelTime:10
