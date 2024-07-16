@@ -16,7 +16,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -32,7 +34,9 @@
 					"targetIndexes" : 
 					[
 						0,
-						1
+						1,
+						2,
+						3
 					]
 				}
 			],
@@ -41,15 +45,29 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "copy_data::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-copy_data-Debug-74b6b240c1fbe94ee128.json",
+					"jsonFile" : "target-copy_data-Debug-d80e23edb58ac17a1842.json",
 					"name" : "copy_data",
 					"projectIndex" : 0
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "usc_path_finder::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-usc_path_finder-Debug-03f6c0c0a348cdc42e3c.json",
+					"jsonFile" : "target-usc_path_finder-Debug-09eb5325efe6905a51a4.json",
 					"name" : "usc_path_finder",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usc_path_finder_autogen::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usc_path_finder_autogen-Debug-5552701bb7ef47e90628.json",
+					"name" : "usc_path_finder_autogen",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "usc_path_finder_autogen_timestamp_deps::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-usc_path_finder_autogen_timestamp_deps-Debug-7381d4528fe4646e2e38.json",
+					"name" : "usc_path_finder_autogen_timestamp_deps",
 					"projectIndex" : 0
 				}
 			]

@@ -47,13 +47,37 @@ cmake_ninja_workdir = /home/overall/CLionProjects/graphic-paths/cmake-build-debu
 #############################################
 # Order-only phony target for usc_path_finder
 
-build cmake_object_order_depends_target_usc_path_finder: phony || CMakeFiles/usc_path_finder.dir
+build cmake_object_order_depends_target_usc_path_finder: phony || usc_path_finder_autogen usc_path_finder_autogen/mocs_compilation.cpp usc_path_finder_autogen/timestamp usc_path_finder_autogen_timestamp_deps
+
+build CMakeFiles/usc_path_finder.dir/usc_path_finder_autogen/mocs_compilation.cpp.o: CXX_COMPILER__usc_path_finder_unscanned_Debug /home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/mocs_compilation.cpp || cmake_object_order_depends_target_usc_path_finder
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/usc_path_finder.dir/usc_path_finder_autogen/mocs_compilation.cpp.o.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+  OBJECT_DIR = CMakeFiles/usc_path_finder.dir
+  OBJECT_FILE_DIR = CMakeFiles/usc_path_finder.dir/usc_path_finder_autogen
 
 build CMakeFiles/usc_path_finder.dir/main.cpp.o: CXX_COMPILER__usc_path_finder_unscanned_Debug /home/overall/CLionProjects/graphic-paths/main.cpp || cmake_object_order_depends_target_usc_path_finder
   DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
   DEP_FILE = CMakeFiles/usc_path_finder.dir/main.cpp.o.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always -fPIC
-  INCLUDES = -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+  INCLUDES = -I/home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+  OBJECT_DIR = CMakeFiles/usc_path_finder.dir
+  OBJECT_FILE_DIR = CMakeFiles/usc_path_finder.dir
+
+build CMakeFiles/usc_path_finder.dir/path-manager.cpp.o: CXX_COMPILER__usc_path_finder_unscanned_Debug /home/overall/CLionProjects/graphic-paths/path-manager.cpp || cmake_object_order_depends_target_usc_path_finder
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/usc_path_finder.dir/path-manager.cpp.o.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+  OBJECT_DIR = CMakeFiles/usc_path_finder.dir
+  OBJECT_FILE_DIR = CMakeFiles/usc_path_finder.dir
+
+build CMakeFiles/usc_path_finder.dir/input-form.cpp.o: CXX_COMPILER__usc_path_finder_unscanned_Debug /home/overall/CLionProjects/graphic-paths/input-form.cpp || cmake_object_order_depends_target_usc_path_finder
+  DEFINES = -DQT_CORE_LIB -DQT_GUI_LIB -DQT_WIDGETS_LIB
+  DEP_FILE = CMakeFiles/usc_path_finder.dir/input-form.cpp.o.d
+  FLAGS = -g -std=gnu++17 -fdiagnostics-color=always -fPIC
+  INCLUDES = -I/home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/include -isystem /usr/include/x86_64-linux-gnu/qt5 -isystem /usr/include/x86_64-linux-gnu/qt5/QtWidgets -isystem /usr/include/x86_64-linux-gnu/qt5/QtGui -isystem /usr/include/x86_64-linux-gnu/qt5/QtCore -isystem /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
   OBJECT_DIR = CMakeFiles/usc_path_finder.dir
   OBJECT_FILE_DIR = CMakeFiles/usc_path_finder.dir
 
@@ -65,7 +89,7 @@ build CMakeFiles/usc_path_finder.dir/main.cpp.o: CXX_COMPILER__usc_path_finder_u
 #############################################
 # Link the executable usc_path_finder
 
-build usc_path_finder: CXX_EXECUTABLE_LINKER__usc_path_finder_Debug CMakeFiles/usc_path_finder.dir/main.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
+build usc_path_finder: CXX_EXECUTABLE_LINKER__usc_path_finder_Debug CMakeFiles/usc_path_finder.dir/usc_path_finder_autogen/mocs_compilation.cpp.o CMakeFiles/usc_path_finder.dir/main.cpp.o CMakeFiles/usc_path_finder.dir/path-manager.cpp.o CMakeFiles/usc_path_finder.dir/input-form.cpp.o | /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3 /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3 || usc_path_finder_autogen usc_path_finder_autogen_timestamp_deps
   FLAGS = -g
   LINK_LIBRARIES = /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3  /usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3  /usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3
   OBJECT_DIR = CMakeFiles/usc_path_finder.dir
@@ -105,10 +129,44 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 
 
 #############################################
+# Utility command for usc_path_finder_autogen_timestamp_deps
+
+build usc_path_finder_autogen_timestamp_deps: phony CMakeFiles/usc_path_finder_autogen_timestamp_deps
+
+
+#############################################
+# Utility command for usc_path_finder_autogen
+
+build usc_path_finder_autogen: phony CMakeFiles/usc_path_finder_autogen usc_path_finder_autogen/timestamp usc_path_finder_autogen/mocs_compilation.cpp usc_path_finder_autogen_timestamp_deps
+
+
+#############################################
+# Custom command for usc_path_finder_autogen/timestamp
+
+build usc_path_finder_autogen/timestamp usc_path_finder_autogen/mocs_compilation.cpp | ${cmake_ninja_workdir}usc_path_finder_autogen/timestamp ${cmake_ninja_workdir}usc_path_finder_autogen/mocs_compilation.cpp: CUSTOM_COMMAND /usr/lib/qt5/bin/moc || usc_path_finder_autogen_timestamp_deps
+  COMMAND = cd /home/overall/CLionProjects/graphic-paths/cmake-build-debug && /home/overall/clion-2024.1.4/bin/cmake/linux/x64/bin/cmake -E cmake_autogen /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/usc_path_finder_autogen.dir/AutogenInfo.json Debug && /home/overall/clion-2024.1.4/bin/cmake/linux/x64/bin/cmake -E touch /home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/timestamp && /home/overall/clion-2024.1.4/bin/cmake/linux/x64/bin/cmake -E cmake_transform_depfile Ninja gccdepfile /home/overall/CLionProjects/graphic-paths /home/overall/CLionProjects/graphic-paths /home/overall/CLionProjects/graphic-paths/cmake-build-debug /home/overall/CLionProjects/graphic-paths/cmake-build-debug /home/overall/CLionProjects/graphic-paths/cmake-build-debug/usc_path_finder_autogen/deps /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/d/3281ae4a4ddca37baf20b0f6ef7d20b7c6c5c77d4e85f78533d84f824a8347b2.d
+  DESC = Automatic MOC for target usc_path_finder
+  depfile = /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/d/3281ae4a4ddca37baf20b0f6ef7d20b7c6c5c77d4e85f78533d84f824a8347b2.d
+  restat = 1
+
+
+#############################################
 # Custom command for CMakeFiles/copy_data
 
 build CMakeFiles/copy_data | ${cmake_ninja_workdir}CMakeFiles/copy_data: CUSTOM_COMMAND /home/overall/CLionProjects/graphic-paths/data
   COMMAND = cd /home/overall/CLionProjects/graphic-paths/cmake-build-debug && /home/overall/clion-2024.1.4/bin/cmake/linux/x64/bin/cmake -E copy_directory /home/overall/CLionProjects/graphic-paths/data /home/overall/CLionProjects/graphic-paths/cmake-build-debug/data
+
+
+#############################################
+# Phony custom command for CMakeFiles/usc_path_finder_autogen_timestamp_deps
+
+build CMakeFiles/usc_path_finder_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/usc_path_finder_autogen_timestamp_deps: phony /usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3 /usr/lib/qt5/bin/moc
+
+
+#############################################
+# Phony custom command for CMakeFiles/usc_path_finder_autogen
+
+build CMakeFiles/usc_path_finder_autogen | ${cmake_ninja_workdir}CMakeFiles/usc_path_finder_autogen: phony usc_path_finder_autogen/timestamp || usc_path_finder_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.
@@ -141,9 +199,16 @@ build /home/overall/CLionProjects/graphic-paths/CMakeLists.txt /home/overall/cli
 
 
 #############################################
+# Clean additional files.
+
+build CMakeFiles/clean.additional: CLEAN_ADDITIONAL
+  CONFIG = Debug
+
+
+#############################################
 # Clean all the built files.
 
-build clean: CLEAN
+build clean: CLEAN CMakeFiles/clean.additional
 
 
 #############################################

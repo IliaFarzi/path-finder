@@ -2,3 +2,5 @@
 /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/copy_data.dir
 /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/edit_cache.dir
 /home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/usc_path_finder_autogen_timestamp_deps.dir
+/home/overall/CLionProjects/graphic-paths/cmake-build-debug/CMakeFiles/usc_path_finder_autogen.dir
